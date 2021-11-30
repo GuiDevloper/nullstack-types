@@ -1,8 +1,7 @@
 {
   "name": "nullstack-types",
-  "version": "0.5.0",
+  "version": "0.5.2",
   "description": "Typing files for Nullstack framework",
   "author": "GuiDevloper",
-  "license": "MIT",
-  "types": ""
+  "license": "MIT"
 }
