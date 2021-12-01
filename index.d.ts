@@ -146,7 +146,38 @@ type Self = {
    */
   element: HTMLElement,
   key: string
-}
+};
+
+type Environment = {
+  client: boolean,
+  server: boolean,
+  development: boolean,
+  production: boolean,
+  static: boolean,
+  /**
+   * md5 hash of the current environment folder outputs.
+   * 
+   * https://nullstack.app/context-environment
+   */
+  key: string
+};
+
+type Server = {
+  get()
+  post()
+  put()
+  patch()
+  delete()
+  options()
+  head()
+  use()
+  port: number,
+  maximumPayloadSize: string,
+  /**
+   * Will be passed as the argument to [express cors plugin](https://expressjs.com/en/resources/middleware/cors.html).
+   */
+  cors: object
+};
 
 /**
  * https://nullstack.app/context
@@ -178,5 +209,60 @@ type Context = {
    * 
    * https://nullstack.app/instance-self
    */
-  self?: Self
+  self?: Self,
+
+  /**
+   * It gives you information about the element dataset.
+   * 
+   * Any `data-*` attributes will receive a respective camelized key on this object.
+   * 
+   * Only on client.
+   * 
+   * https://nullstack.app/context-data
+   */
+  data?: Object,
+
+  /**
+   * It gives you all active instances of the application.
+   * 
+   * Adding a [key](https://nullstack.app/instance-self#instance-key) to a Component adds it here.
+   * 
+   * Only on client.
+   * 
+   * https://nullstack.app/context-instances
+   */
+  instances?: Object,
+
+  /**
+   * It gives you information about the current environment.
+   * 
+   * https://nullstack.app/context-environment
+   */
+  environment?: Environment,
+
+  /**
+   * The server key is a proxy around the [Express](https://expressjs.com/) instance that runs Nullstack under the hood.
+   * 
+   * Only on server.
+   * 
+   * https://nullstack.app/server-request-and-response
+   */
+  server?: Server,
+  
+  /**
+   * Original `request` object from [Express](https://expressjs.com/)
+   * 
+   * Only on server.
+   * 
+   * https://nullstack.app/server-request-and-response
+   */
+  request: Object,
+  /**
+   * Original `response` object from [Express](https://expressjs.com/)
+   * 
+   * Only on server.
+   * 
+   * https://nullstack.app/server-request-and-response
+   */
+  response: Object
 };
