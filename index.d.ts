@@ -61,7 +61,15 @@ type Page = {
    * 
    * https://nullstack.app/context-page
    */
-  status: number
+  status: number,
+  /**
+   * Event raised when `page.title` changes.
+   * 
+   * Only on client.
+   * 
+   * https://nullstack.app/context-page#custom-events
+   */
+  event: string
 };
 
 type Project = {
@@ -179,6 +187,47 @@ type Server = {
   cors: object
 };
 
+type Params = {
+  [key: string]: string | boolean
+};
+
+type Router = {
+  /**
+   * All url after the domain including the path and the query params
+   * 
+   * https://nullstack.app/routes-and-params#router
+   */
+  url: string,
+  /**
+   * The router path without query params.
+   * 
+   * https://nullstack.app/routes-and-params#router
+   */
+  path: string,
+  /**
+   * Only the base url, example: `https://nullstack.app`
+   * 
+   * https://nullstack.app/routes-and-params#router
+   */
+  base: string,
+  /**
+   * Event raised when `router.url` or `router.path` changes.
+   * 
+   * Only on client.
+   * 
+   * https://nullstack.app/routes-and-params#custom-events
+   */
+  event: string
+};
+
+type Settings = {
+  [key: string]: any
+};
+
+type Secrets = {
+  [key: string]: any
+};
+
 /**
  * https://nullstack.app/context
  */
@@ -188,28 +237,28 @@ type Context = {
    *  
    * https://nullstack.app/context-page
    */
-  page?: Page,
+  page: Page,
 
   /**
    * Information about the app manifest and some metatags.
    *
    * https://nullstack.app/context-project
    */
-  project?: Project,
+  project: Project,
 
   /**
    * Gives you granular control of your PWA behavior.
    * 
    * https://nullstack.app/service-worker
    */
-  worker?: CtxWorker,
+  worker: CtxWorker,
 
   /**
    * It gives you information about the instance lifecycle and it's unique [key](https://nullstack.app/instance-self#instance-key).
    * 
    * https://nullstack.app/instance-self
    */
-  self?: Self,
+  self: Self,
 
   /**
    * It gives you information about the element dataset.
@@ -220,7 +269,7 @@ type Context = {
    * 
    * https://nullstack.app/context-data
    */
-  data?: Object,
+  data: Object,
 
   /**
    * It gives you all active instances of the application.
@@ -231,14 +280,14 @@ type Context = {
    * 
    * https://nullstack.app/context-instances
    */
-  instances?: Object,
+  instances: Object,
 
   /**
    * It gives you information about the current environment.
    * 
    * https://nullstack.app/context-environment
    */
-  environment?: Environment,
+  environment: Environment,
 
   /**
    * The server key is a proxy around the [Express](https://expressjs.com/) instance that runs Nullstack under the hood.
@@ -247,8 +296,7 @@ type Context = {
    * 
    * https://nullstack.app/server-request-and-response
    */
-  server?: Server,
-  
+  server: Server,
   /**
    * Original `request` object from [Express](https://expressjs.com/)
    * 
@@ -264,7 +312,48 @@ type Context = {
    * 
    * https://nullstack.app/server-request-and-response
    */
-  response: Object
+  response: Object,
+
+  /**
+   * Each query string param is mapped to this object.
+   * 
+   * https://nullstack.app/routes-and-params#params
+   * @example
+   * "/?expanded=true&page=2" === {expanded: true, page: 2}
+   */
+  params: Params,
+
+  /**
+   * Nullstack router.
+   * 
+   * https://nullstack.app/routes-and-params#router
+   */
+  router: Router,
+
+  /**
+   * You can assign any key with any type of public information.
+   * 
+   * .env `NULLSTACK_SETTINGS_PUBLIC_KEY` -> `settings.publicKey`
+   * 
+   * https://nullstack.app/context-settings
+   */
+  settings: Settings,
+
+  /**
+   * You can assign any key with any type of private information.
+   * 
+   * .env `NULLSTACK_SECRETS_PRIVATE_KEY` -> `secrets.privateKey`
+   * 
+   * https://nullstack.app/context-secrets
+   */
+  secrets: Secrets,
+
+  /**
+   * Children elements of this component.
+   * 
+   * https://nullstack.app/renderable-components#components-with-children
+   */
+  children: any
 };
 
 type ElementNode = {
