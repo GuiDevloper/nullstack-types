@@ -300,3 +300,14 @@ type ElementPlugin = {
    */
   client?: Boolean
 };
+
+interface indexContext extends Context {
+  start()
+}
+
+declare module 'nullstack' {
+  export default class Nullstack {
+    static start(App: any): indexContext
+    static use(Plugin: ElementPlugin): undefined
+  }
+}
