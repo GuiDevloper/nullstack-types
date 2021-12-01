@@ -3,5 +3,6 @@
   "version": "0.5.5",
   "description": "Typing files for Nullstack framework",
   "author": "GuiDevloper",
-  "license": "MIT"
+  "license": "MIT",
+  "types": "index.d.ts"
 }
