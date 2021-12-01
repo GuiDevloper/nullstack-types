@@ -266,3 +266,37 @@ type Context = {
    */
   response: Object
 };
+
+type ElementNode = {
+  type: String | Boolean,
+  attributes: {
+    route: String,
+    html: String
+  },
+  children: Array<any>
+};
+
+interface ContextNode extends Context {
+  node: ElementNode
+}
+
+type ElementPlugin = {
+  /**
+   * Runs transformation to node element
+   * @param context Context with node attributes
+   */
+  transform(context: ContextNode),
+  /**
+   * Load something when plugin installs
+   * @param context Application context
+   */
+  load?(context: Context),
+  /**
+   * Use plugin in server context
+   */
+  server?: Boolean,
+  /**
+   * Use plugin in client context
+   */
+  client?: Boolean
+};
