@@ -11,3 +11,7 @@ declare module 'nullstack' {
     static use?(Plugin: ElementPlugin): undefined
   }
 }
+
+declare module '*.njs' {
+  export default class {}
+}
