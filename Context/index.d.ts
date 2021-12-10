@@ -16,28 +16,28 @@ type Context = {
    *  
    * https://nullstack.app/context-page
    */
-  page: Page,
+  page?: Page,
 
   /**
    * Information about the app manifest and some metatags.
    *
    * https://nullstack.app/context-project
    */
-  project: Project,
+  project?: Project,
 
   /**
    * Gives you granular control of your PWA behavior.
    * 
    * https://nullstack.app/service-worker
    */
-  worker: CtxWorker,
+  worker?: CtxWorker,
 
   /**
    * It gives you information about the instance lifecycle and it's unique [key](https://nullstack.app/instance-self#instance-key).
    * 
    * https://nullstack.app/instance-self
    */
-  self: Self,
+  self?: Self,
 
   /**
    * It gives you information about the element dataset.
@@ -48,7 +48,7 @@ type Context = {
    * 
    * https://nullstack.app/context-data
    */
-  data: object,
+  data?: object,
 
   /**
    * It gives you all active instances of the application.
@@ -59,14 +59,14 @@ type Context = {
    * 
    * https://nullstack.app/context-instances
    */
-  instances: object,
+  instances?: object,
 
   /**
    * It gives you information about the current environment.
    * 
    * https://nullstack.app/context-environment
    */
-  environment: Environment,
+  environment?: Environment,
 
   /**
    * The server key is a proxy around the [Express](https://expressjs.com/) instance that runs Nullstack under the hood.
@@ -75,7 +75,7 @@ type Context = {
    * 
    * https://nullstack.app/server-request-and-response
    */
-  server: Server,
+  server?: Server,
   /**
    * Original `request` object from [Express](https://expressjs.com/)
    * 
@@ -83,7 +83,7 @@ type Context = {
    * 
    * https://nullstack.app/server-request-and-response
    */
-  request: object,
+  request?: object,
   /**
    * Original `response` object from [Express](https://expressjs.com/)
    * 
@@ -91,7 +91,7 @@ type Context = {
    * 
    * https://nullstack.app/server-request-and-response
    */
-  response: object,
+  response?: object,
 
   /**
    * Each query string param is mapped to this object.
@@ -100,14 +100,14 @@ type Context = {
    * @example
    * "/?expanded=true&page=2" === {expanded: true, page: 2}
    */
-  params: Params,
+  params?: Params,
 
   /**
    * Nullstack router.
    * 
    * https://nullstack.app/routes-and-params#router
    */
-  router: Router,
+  router?: Router,
 
   /**
    * You can assign any key with any type of public information.
@@ -116,7 +116,7 @@ type Context = {
    * 
    * https://nullstack.app/context-settings
    */
-  settings: Settings,
+  settings?: Settings,
 
   /**
    * You can assign any key with any type of private information.
@@ -125,13 +125,13 @@ type Context = {
    * 
    * https://nullstack.app/context-secrets
    */
-  secrets: Secrets,
+  secrets?: Secrets,
 
   /**
    * Children elements of this component.
    * 
    * https://nullstack.app/renderable-components#components-with-children
    */
-  children: any,
+  children?: any,
   [key: string]: any
 };
