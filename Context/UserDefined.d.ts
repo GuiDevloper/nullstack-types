@@ -3,9 +3,9 @@ type Params = {
 };
 
 type Settings = {
-  [key: string]: any
+  [key: string]: string | boolean
 };
 
 type Secrets = {
-  [key: string]: any
+  [key: string]: string | boolean
 };
