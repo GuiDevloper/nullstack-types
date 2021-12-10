@@ -7,7 +7,7 @@ interface indexContext extends Context {
 
 declare module 'nullstack' {
   export default class Nullstack {
-    static start(App: any): indexContext
-    static use(Plugin: ElementPlugin): undefined
+    static start?(App: any): indexContext
+    static use?(Plugin: ElementPlugin): undefined
   }
 }
