@@ -4,9 +4,9 @@
 
 Typing files including framework docs and some examples of uses (e.g. [Context](https://nullstack.app/context) in Nullstack).
 
-It can be used together with TSX files inside projects using [nullstack-to-njs](https://github.com/GuiDevloper/nullstack-to-njs).
+> Nullstack framework already absorbed those types, so currently this package is just a zero-dependencies mirror with synced version.
 
-A example project using it: [nullstack-tsx-example](https://github.com/GuiDevloper/nullstack-tsx-example).
+A example project using it from Nullstack: [nullstack-tsx-example](https://github.com/GuiDevloper/nullstack-tsx-example).
 
 ## How to use this project
 
@@ -14,15 +14,14 @@ Installing it:
 
 `npm install nullstack-types -D`
 
-The current way to make the editor absorb it inside TS files is putting a reference on top of them:
+To make the editor absorb it inside TS files put a reference on top of them:
 
 ```jsx
 /// <reference types="nullstack-types"/>
+
+// all types can be imported too!
+import type { NullstackClientContext } from 'nullstack-types';
 ```
-
-Then a `Context` type becomes available in the file to be used or extended as follows:
-
-![context-typing](https://github.com/GuiDevloper/nullstack-types/blob/master/assets/context-typing.png?raw=true)
 
 ## Learn more about Nullstack
 
